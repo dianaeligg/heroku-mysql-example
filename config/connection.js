@@ -1,6 +1,8 @@
 // Set up MySQL connection.
 var mysql = require('mysql');
 
+require('dotenv').config();
+
 // var connection = mysql.createConnection({
 //   host: 'localhost',
 //   port: 3306,
@@ -10,11 +12,11 @@ var mysql = require('mysql');
 // });
 
 var connection = mysql.createConnection({
-  host: 'hwr4wkxs079mtb19.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  host: process.env.CATS_DB_HOSTNAME,
   port: 3306,
-  user: 'nbthdih0cznyu1yn',
-  password: 'h0rny9wkpbchmfon',
-  database: 'ynl0hz6q3ductf4a',
+  user: process.env.CATS_DB_USER,
+  password: process.env.CATS_DB_PASSWORD,
+  database: process.env.CATS_DB_NAME,
 });
 
 // Make connection.
